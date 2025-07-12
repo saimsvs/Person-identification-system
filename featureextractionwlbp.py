@@ -72,6 +72,10 @@ for subfoldernum in range_subfol:
             fdetected = image
 
             #resizing each image
+
+            
+            
+
             edetectedr = cv2.resize(edetected, (64, 64), interpolation=cv2.INTER_AREA)
             mdetectedr = cv2.resize(mdetected, (64, 64), interpolation=cv2.INTER_AREA)
             ndetectedr = cv2.resize(ndetected, (64, 64), interpolation=cv2.INTER_AREA)
