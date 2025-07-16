@@ -3,14 +3,18 @@ import numpy as np
 import os
 
 # Input and output directories
+
 input_dir = "cleaned_dataset"   
+
 output_dir = "augmented_dataset" # New folder where augmented images will be saved
 
 # Create output folder if not exists
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
+
 # Loop through 11 individual folders
+
 for person_id in range(1, 12):
     folder_name = f"{person_id:02d}"
     person_folder = os.path.join(input_dir, folder_name)
@@ -19,7 +23,11 @@ for person_id in range(1, 12):
     if not os.path.exists(output_person_folder):
         os.makedirs(output_person_folder)
 
+
+    
+
     images = [f for f in os.listdir(person_folder) if f.endswith(('.jpg'))]
+
 
     for img_name in images:
         img_path = os.path.join(person_folder, img_name)
@@ -31,15 +39,24 @@ for person_id in range(1, 12):
 
         h, w = img.shape[:2]
 
+
+
         # horizontal shift
+
         shift_pixels = int(0.1 * w)  # Shift by 10% width
         M = np.float32([[1, 0, shift_pixels], [0, 1, 0]])
         shifted_img = cv2.warpAffine(img, M, (w, h))
 
+
+        # --- Brightness adjustment ---
+        bright_img = cv2.convertScaleAbs(img, alpha=1, beta=40)  # Increase brightness (beta)
+
+      
         # change brightness
         bright_img = cv2.convertScaleAbs(img, alpha=1, beta=40)  # Increase brightness (beta)
 
         # horizontal flip
+
         flipped_img = cv2.flip(img, 1)
 
         # Save original (if needed) and all augmentations
