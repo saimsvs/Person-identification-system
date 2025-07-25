@@ -6,7 +6,7 @@ from tqdm import tqdm
 from skimage.feature import hog
 
 balanced_dir = "balanced_images"
-IMAGE_SIZE = (256, 256)  # Already resized in your cleaned dataset
+IMAGE_SIZE = (128,128)  # Already resized in your cleaned dataset
 FEATURE_CSV = "final_features.csv"
 
 # the same model will be used to produce the csv file for augmented dataset. you would have to 
