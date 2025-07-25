@@ -22,7 +22,8 @@ face_detection = mp_face_detection.FaceDetection(model_selection=1, min_detectio
 
 
 rows = []
-for folder in sorted(os.listdir(DATASET_DIR), key=lambda x: int(x)):# loop over the data set and alos convert the strings to int
+for folder in sorted([f for f in os.listdir(DATASET_DIR) if f.isdigit()], key=lambda x: int(x)):
+# loop over the data set and alos convert the strings to int
     person_folder = os.path.join(DATASET_DIR, folder)
     if not os.path.isdir(person_folder):# skip the nondirectory and joi the clean directory with each person
         continue
