@@ -84,9 +84,10 @@ python main.py
 
 ---
 
-##How it Works
--Detects the face ,extracts features and normalises them to predict identity of an individual.
--Providess an option for static images and a live webcam detection.
+## How it Works
+- Detects the face ,extracts features and normalises them to predict identity of an individual.
+- Providess an option for static images and a live webcam detection.
+- The GUI would show live prediction.
 ---
 ## Authors
 
